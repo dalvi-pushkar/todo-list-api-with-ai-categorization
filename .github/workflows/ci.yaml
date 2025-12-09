@@ -1,0 +1,15 @@
+name: Ci pipeline
+on:
+  workflow_dispatch:
+jobs:
+  new:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v6
+  verify:
+    needs: new
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing
+        run: echo "code checked out"
